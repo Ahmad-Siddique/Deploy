@@ -7,15 +7,15 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
-     
-server:
-  build: .
-  ports:
-    - "5000:5000"
-  volumes:
-    - .:/app
-  depends_on:
-    - mongodb
+
+  server:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
 
 volumes:
   data:
