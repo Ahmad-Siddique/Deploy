@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  mongodb:
+    image: 'mongo'
+    volumes:
+      - data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+     
+server:
+  build: .
+  ports:
+    - "5000:5000"
+  volumes:
+    - .:/app
+  depends_on:
+    - mongodb
+
+volumes:
+  data:
